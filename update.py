@@ -8,8 +8,7 @@ def get_recent_snippets(api_key):
     Returner liste av snippetd
 
     """
-    url = 'https://folk.ntnu.no/carljh/snippet'
-    url = 'http://localhost:8000/snippets/api/list/'
+    url = 'https://s.ntnu.no/snippets/'
     params = dict(count=100, format='json')
     headers = dict(Authorization=api_key)
     r = web.get(url, params, headers)

@@ -77,5 +77,7 @@ def main(wf):
 
 
 if __name__ == u"__main__":
-    wf = Workflow()
+    wf = Workflow(update_settings={
+    'github_slug': 'Orakeltjenesten/snippets',
+    })
     sys.exit(wf.run(main))
