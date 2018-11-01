@@ -79,4 +79,10 @@ if __name__ == u"__main__":
     workflow = Workflow3(update_settings={
         'github_slug': 'Orakeltjenesten/snippets',
     })
+    if workflow.update_available:
+        # Add a notification to top of Script Filter results
+        workflow.add_item('New version available',
+                    'Action this item to install the update',
+                    autocomplete='workflow:update',
+                    icon=ICON_INFO)
     sys.exit(workflow.run(main))
