@@ -8,11 +8,23 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>3EFEC081-E57E-4D84-95D8-CA82BE673284</key>
+		<array/>
 		<key>490D6763-B8F0-418B-90A7-5C0D08C1A789</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>C9C9F6CA-9144-4CFF-BB0B-30E8650BE1DC</string>
+				<string>3EFEC081-E57E-4D84-95D8-CA82BE673284</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>FEF33C3E-41C3-4EDE-92C6-868BF0C230BE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -38,7 +50,20 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>4324494F-C4FA-4B25-A61C-938B68084C4C</string>
+				<string>D24B99D3-17DB-4DD5-853B-C3DBA9992845</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FEF33C3E-41C3-4EDE-92C6-868BF0C230BE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C9C9F6CA-9144-4CFF-BB0B-30E8650BE1DC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -61,19 +86,42 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<true/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>transient</key>
+				<key>concurrently</key>
 				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>/usr/bin/python increment.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>C9C9F6CA-9144-4CFF-BB0B-30E8650BE1DC</string>
+			<string>A380F170-EBF0-4747-B9F3-BE4493FC5762</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>([0-9]+)\^\^([^\^]+)</string>
+				<key>replacestring</key>
+				<string>$1</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>3EFEC081-E57E-4D84-95D8-CA82BE673284</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -87,7 +135,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>osn</string>
+				<string>o</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -99,7 +147,7 @@
 				<key>runningsubtext</key>
 				<string>Laster...</string>
 				<key>script</key>
-				<string>python orakelsnippet.py "{query}"</string>
+				<string>/usr/bin/python orakelsnippet.py "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -123,25 +171,36 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python orakelsnippet.py --setkey "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>FB52F325-6445-4F68-A77A-B9E0655207CD</string>
+			<string>C9C9F6CA-9144-4CFF-BB0B-30E8650BE1DC</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>([0-9]+)\^\^([^\^]+)</string>
+				<key>replacestring</key>
+				<string>$2</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>FEF33C3E-41C3-4EDE-92C6-868BF0C230BE</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -153,14 +212,14 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>Din orakel API nøkkel ble lagret i nøkkelringen</string>
+				<string>Din API-nøkkel er nå lagret i keychain</string>
 				<key>title</key>
-				<string>API nøkkel lagret</string>
+				<string>Orakelsnippet</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>4324494F-C4FA-4B25-A61C-938B68084C4C</string>
+			<string>D24B99D3-17DB-4DD5-853B-C3DBA9992845</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -185,45 +244,89 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python orakelsnippet.py --setkey "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FB52F325-6445-4F68-A77A-B9E0655207CD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>4324494F-C4FA-4B25-A61C-938B68084C4C</key>
+		<key>3EFEC081-E57E-4D84-95D8-CA82BE673284</key>
 		<dict>
 			<key>xpos</key>
-			<integer>560</integer>
+			<integer>220</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>40</integer>
 		</dict>
 		<key>490D6763-B8F0-418B-90A7-5C0D08C1A789</key>
 		<dict>
 			<key>xpos</key>
 			<integer>40</integer>
 			<key>ypos</key>
-			<integer>40</integer>
+			<integer>80</integer>
+		</dict>
+		<key>A380F170-EBF0-4747-B9F3-BE4493FC5762</key>
+		<dict>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>10</integer>
 		</dict>
 		<key>A670F3A7-E2AC-4B03-96D8-86DFCF058A06</key>
 		<dict>
 			<key>xpos</key>
 			<integer>40</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>310</integer>
 		</dict>
 		<key>C9C9F6CA-9144-4CFF-BB0B-30E8650BE1DC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>340</integer>
 			<key>ypos</key>
-			<integer>40</integer>
+			<integer>160</integer>
+		</dict>
+		<key>D24B99D3-17DB-4DD5-853B-C3DBA9992845</key>
+		<dict>
+			<key>xpos</key>
+			<integer>560</integer>
+			<key>ypos</key>
+			<integer>310</integer>
 		</dict>
 		<key>FB52F325-6445-4F68-A77A-B9E0655207CD</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>340</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>310</integer>
+		</dict>
+		<key>FEF33C3E-41C3-4EDE-92C6-868BF0C230BE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>220</integer>
+			<key>ypos</key>
+			<integer>190</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

@@ -1,5 +1,7 @@
 # encoding: utf-8
-from workflow import web, Workflow, PasswordNotFound
+import sys
+
+from workflow import PasswordNotFound, Workflow3, web
 
 
 def get_recent_snippets(api_key):
@@ -8,7 +10,7 @@ def get_recent_snippets(api_key):
     Returner liste av snippetd
 
     """
-    url = 'https://s.ntnu.no/snippets/'
+    url = 'https://intern.orakel.ntnu.no/snippets/api/'
     params = dict(count=100, format='json')
     headers = dict(Authorization=api_key)
     r = web.get(url, params, headers)
@@ -27,24 +29,22 @@ def main(wf):
         # Get API key from Keychain
         api_key = wf.get_password('orakel_api_key')
 
-        # Retrieve snippets from cache if available and no more than 600
-        # seconds old
-
         def wrapper():
-            """`cached_data` can only take a bare callable (no args),
-            so we need to wrap callables needing arguments in a function
-            that needs none.
-            """
             return get_recent_snippets(api_key)
 
-        snippets = wf.cached_data('snippets', wrapper, max_age=1)
+        snippets = wf.cached_data('snippets', wrapper, max_age=99)
+
         # Record our progress in the log file
         log.debug('%d snippets cached' % len(snippets))
+
     except PasswordNotFound:  # API key has not yet been set
-        # Nothing we can do about this, so just log it
         log.error('No API key saved')
+        return 1
+
+    return 0
+
 
 if __name__ == '__main__':
-    wf = Workflow()
-    log = wf.logger
-    wf.run(main)
+    workflow = Workflow3()
+    log = workflow.logger
+    sys.exit(workflow.run(main))
